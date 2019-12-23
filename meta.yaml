@@ -1,0 +1,113 @@
+{% set name = "hazus" %}
+{% set version = "0.0.8" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: 0dd62f6007b6c3aaec689d5cd208d23e72b7abd7d8c64716b9cea5b279feccd8
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  host:
+    - pip
+    - python
+  run:
+    - python
+    - affine
+    - asn1crypto
+    - attrs
+    - bcrypt
+    - certifi
+    - cffi
+    - chardet
+    - Click
+    - click-plugins
+    - cligj
+    - cryptography
+    - cycler
+    - descartes
+    - Fiona
+    - GDAL
+    - geopandas
+    - idna
+    - jenkspy
+    - kiwisolver
+    - mapclassify
+    - matplotlib
+    - mkl_fft
+    - mkl_random
+    - mkl-service
+    - munch
+    - numpy
+    - olefile
+    - palettable
+    - pandas
+    - paramiko
+    - patsy
+    - pdfrw
+    - Pillow
+    - psycopg2
+    - pycparser
+    - PyNaCl
+    - pyodbc
+    - pyOpenSSL
+    - pyparsing
+    - PyPDF2
+    - pyproj
+    - pysal
+    - PySocks
+    - python-dateutil
+    - pytz
+    - rasterio
+    - reportlab
+    - requests
+    - Rtree
+    - scipy
+    - seaborn
+    - Shapely
+    - six
+    - snuggs
+    - SQLAlchemy
+    - statsmodels
+    - tornado
+    - urllib3
+    - utm
+    - win_inet_pton
+    - wincertstore
+
+test:
+  imports:
+    - hazus
+    - hazus.common
+    - hazus.earthquake
+    - hazus.earthquake.modules
+    - hazus.flood
+    - hazus.flood.modules
+    - hazus.hurricane
+    - hazus.hurricane.modules
+    - hazus.legacy
+    - hazus.legacy.exporting
+    - hazus.legacy.exporting.reports
+    - hazus.legacy.exporting.results
+    - hazus.tornado
+    - hazus.tsunami
+    - hazus.tsunami.modules
+
+about:
+  home: "https://github.com/nhrap-hazus/hazus.git"
+  license: "GNU General Public v3 or later (GPLv3+)"
+  license_family: GPL3
+  license_file: 
+  summary: "FEMA - Hazus Open-Source Library"
+  doc_url: 
+  dev_url: 
+
+extra:
+  recipe-maintainers:
+    - lorax521

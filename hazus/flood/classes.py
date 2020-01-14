@@ -31,7 +31,7 @@ class Analysis():
         self.generalBuildingStock = GeneralBuildingStock()
         self.indirectEconomicLoss = IndirectEconomicLoss()
         self.transportationSystems = TransportationSystems()
-        self.UDF = UDF()
+        self.UDF = UDF() #UKS - 1/14/2020 - RTC CR 34227
         self.utilitySystems = UtilitySystems()
         self.vehicles = Vehicles()
         self.whatIf = WhatIf()

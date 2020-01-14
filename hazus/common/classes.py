@@ -4,12 +4,12 @@ import json
 import os
 import copy
 
-#UKS - 1/14/2020
+#UKS - 1/14/2020 - RTC CR 34227
 import logging
 import os,csv,sys,time,math,datetime,subprocess,numpy as np, utm
 from osgeo import gdal, osr, gdal_array,gdalconst
 from osgeo.gdalconst import *
-#UKS - 1/14/2020
+#UKS - 1/14/2020 - RTC CR 34227
 
 # from multiprocessing import Process
 from threading import Thread

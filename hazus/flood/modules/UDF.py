@@ -1,3 +1,15 @@
+"""
+    Hazus - Flood UDF
+    ~~~~~
+
+    FEMA developed module for analzying risk and loss from floods.
+
+    :copyright: © 2019 by FEMA's Natural Hazards and Risk Assesment Program.
+    :license: cc, see LICENSE for more details.
+    :author: Ujvala K Sharma (UKS) 
+    :date:   1/14/2020
+    :Task:   RTC CR 34227
+"""
 class UDF():
     def __init__(self):
         pass
@@ -257,36 +269,6 @@ def flood_damage(UDFOrig, LUT_Dir, ResultsDir, DepthGrids, QC_Warning, fmap):
             IsUTM = True if osr.SpatialReference(wkt=raster.GetProjection()).GetAttrValue('UNIT') == 'metre' else False
             print('Is it UTM? ', IsUTM)
             
-            """
-            inProj = Proj(init='epsg:3857')
-            outProj = Proj(init='epsg:4326')
-            x1,y1 = xOrigin, yOrigin
-            x2,y2 = Transform(inProj,outProj,x1,y1)
-            print(x2,y2)
-            print('utm conv ', utm.from_latlon(y1, x1))
-            ds=raster
-            prj=ds.GetProjection()
-            print(prj,type(prj))
-
-            srs=osr.SpatialReference(wkt=prj)
-            print(srs.GetAttrValue('UNIT'))
-            srs.EPSGTreatsAsNorthingEasting()
-            print('special ',srs.GetAttrValue('UNIT'),srs.GetAngularUnits(),srs.GetAngularUnitsName(),srs.GetLinearUnits(),srs.GetLinearUnitsName(),srs.GetProjParm('EPSG'),srs.GetUTMZone())
-            print(type(srs),srs,help(srs))
-            """
-            """
-
-            def retrieve_pixel_value(geo_coord, data_source = raster):  
-                x, y = geo_coord[0], geo_coord[1]
-                forward_transform =  Affine.from_gdal(*data_source.GetGeoTransform())
-                reverse_transform = ~forward_transform
-                px, py = reverse_transform * (x, y)
-                px, py = int(px + 0.5), int(py + 0.5)
-                pixel_coord = px, py
-                #print(px,py,x,y)
-                data_array = np.array(data_source.GetRasterBand(1).ReadAsArray())
-                return data_array[pixel_coord[0]][pixel_coord[1]]
-            """
             with open(UDFOrig, newline='') as csvfile:
                 writer = csv.DictWriter(file_out, delimiter=',', lineterminator='\n', fieldnames = field_names)
                 file = csv.DictReader(csvfile)

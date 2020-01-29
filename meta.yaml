@@ -67,7 +67,7 @@ requirements:
     - rasterio
     - reportlab
     - requests
-    - Rtree
+    - rtree
     - scipy
     - seaborn
     - Shapely

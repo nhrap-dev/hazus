@@ -6,22 +6,66 @@
 
     :copyright: © 2019 by FEMA's Natural Hazards and Risk Assesment Program.
     :license: cc, see LICENSE for more details.
-    :author: Ujvala K Sharma (UKS) 
+    :author(FAST Merge): Ujvala K Sharma (UKS) 
     :date:   1/14/2020
     :Task:   RTC CR 34227
 """
+
+import logging
+import os,csv,sys,time,math,datetime,math,subprocess,numpy as np, utm
+from osgeo import gdal, osr, gdal_array,gdalconst
+from osgeo.gdalconst import *
+
 class UDF():
     def __init__(self):
         pass
     
+    # This test allows the script to be used from the operating
+    # system command prompt (stand-alone), in a Python IDE,
+    # as a geoprocessing script tool, or as a module imported in
+    # another script
+    @staticmethod
+    def local(spreadsheet,fmap):
+        raster = fmap[-1]#[-1]
+        fmap = fmap[:-1]
+        cwd = os.getcwd()
+        #cwd = os.path.dirname(cwd)
+        outDir = os.path.dirname(spreadsheet)
+        print(outDir)
+        argv = (spreadsheet,os.path.join(cwd,r"lookuptables"),outDir,[os.path.join(cwd,'rasters',grid) for grid in raster],"False",fmap)
+        
+        print(argv)
+        print(fmap)
+        objUDF = UDF()
+        return objUDF.flood_damage(*argv)
+    
+    @staticmethod
     def flood_damage(UDFOrig, LUT_Dir, ResultsDir, DepthGrids, QC_Warning, fmap):
-        log = []#CBH
         # UDFOrig = USer-supplied UDF input file. Full pathname required
         # LUT_Dir = folder name where the Lookup table libraries reside
         # ResultsDir = Where the output file geodatabase will be created. Folder (dir) must exist, else fail
         # DepthGrids = one or more flood depth grids
         # QC_Warning = Boolean, report on informative inconsistency observations if selected, otherwise suppress them  
+        gdal.SetCacheMax(2**30*5)
+        logger = logging.getLogger('FAST')
+        logger.setLevel(logging.INFO)
+        cdir = os.getcwd()
+        print(cdir)
+        logDirName = "Log"
+        logDir = os.path.join(cdir,logDirName)
+        print(logDir)
 
+        print(UDFOrig)
+        print(LUT_Dir)
+        print(ResultsDir)
+
+        handler = logging.FileHandler(logDir + '\\' + 'app.log')
+        handler.setLevel(logging.INFO)
+        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        handler.setFormatter(formatter)
+        logger.addHandler(handler)
+
+        log = []#CBH
         logger.info('\n')
         logger.info('Calculation FL Building & Content Losses...')
         try:

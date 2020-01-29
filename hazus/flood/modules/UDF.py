@@ -29,6 +29,8 @@ class UDF():
         raster = fmap[-1]#[-1]
         fmap = fmap[:-1]
         cwd = os.getcwd()
+        if (cwd.find('Python_env')!= -1):
+            cwd = os.path.dirname(cwd)
         #cwd = os.path.dirname(cwd)
         outDir = os.path.dirname(spreadsheet)
         print(outDir)
@@ -50,6 +52,8 @@ class UDF():
         logger = logging.getLogger('FAST')
         logger.setLevel(logging.INFO)
         cdir = os.getcwd()
+        if (cdir.find('Python_env')!= -1):
+            cdir = os.path.dirname(cdir)
         print(cdir)
         logDirName = "Log"
         logDir = os.path.join(cdir,logDirName)

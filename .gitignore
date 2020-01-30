@@ -106,3 +106,6 @@ venv.bak/
 # vscode
 .vscode/
 .VSCodeCounter
+hazus_compile.bat
+hazus_env.bat
+hazus_env_req.txt

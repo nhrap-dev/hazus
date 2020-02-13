@@ -33,11 +33,11 @@ class UDF():
             cwd = os.path.dirname(cwd)
         #cwd = os.path.dirname(cwd)
         outDir = os.path.dirname(spreadsheet)
-        print(outDir)
+        #print(outDir)
         argv = (spreadsheet,os.path.join(cwd,r"lookuptables"),outDir,[os.path.join(cwd,'rasters',grid) for grid in raster],"False",fmap)
         
-        print(argv)
-        print(fmap)
+        #print(argv)
+        #print(fmap)
         objUDF = UDF()
         return objUDF.flood_damage(*argv)
     

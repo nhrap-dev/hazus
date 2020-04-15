@@ -13,7 +13,9 @@ rem Please see https://github.com/pypa/pip/issues/5599 for advice on fixing the 
 rem To avoid this problem you can invoke Python with '-m pip' instead of running pip directly.
 rem Processing c:\_repositories\hazus\dist\hazus-0.0.9-py3-none-any.whl
 
-python -m pip install C:\_Repositories\hazus\dist\hazus-0.0.9-py3-none-any.whl
+REM python -m pip install C:\_Repositories\hazus\dist\hazus-0.0.9-py3-none-any.whl
+python -m pip install C:\_Repositories\development\hazus\dist\hazus-0.1.0-py3-none-any.whl REM DEV
+REM python -m pip install C:\_Repositories\production\hazus\dist\hazus-0.1.0-py3-none-any.whl REM PROD
 
 rem - For dev testing - Share the latest Wheel file
 rem - User will download FAST from GitHub 

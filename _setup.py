@@ -5,9 +5,9 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="hazus",
-    version="0.0.11",
+    version="0.0.8",
     author="James Raines",
-    author_email="james.rainesii@fema.dhs.gov,usharma@niyamit.com",
+    author_email="james.rainesii@fema.dhs.gov",
     description="FEMA - Hazus Open-Source Library",
     long_description=long_description,
     long_description_content_type="text/markdown",

@@ -1,5 +1,5 @@
-{% set name = "hazus" %}
-{% set version = "0.0.11" %}
+{% set name = "hazpy-test" %}
+{% set version = "0.0.10" %}
 
 package:
   name: "{{ name|lower }}"
@@ -67,7 +67,7 @@ requirements:
     - rasterio
     - reportlab
     - requests
-    - rtree
+    - Rtree
     - scipy
     - seaborn
     - Shapely
@@ -83,28 +83,28 @@ requirements:
 
 test:
   imports:
-    - hazus
-    - hazus.common
-    - hazus.earthquake
-    - hazus.earthquake.modules
-    - hazus.flood
-    - hazus.flood.modules
-    - hazus.hurricane
-    - hazus.hurricane.modules
-    - hazus.legacy
-    - hazus.legacy.exporting
-    - hazus.legacy.exporting.reports
-    - hazus.legacy.exporting.results
-    - hazus.tornado
-    - hazus.tsunami
-    - hazus.tsunami.modules
+    - hazpy
+    - hazpy.common
+    - hazpy.earthquake
+    - hazpy.earthquake.modules
+    - hazpy.flood
+    - hazpy.flood.modules
+    - hazpy.hurricane
+    - hazpy.hurricane.modules
+    - hazpy.legacy
+    - hazpy.legacy.exporting
+    - hazpy.legacy.exporting.reports
+    - hazpy.legacy.exporting.results
+    - hazpy.tornado
+    - hazpy.tsunami
+    - hazpy.tsunami.modules
 
 about:
-  home: "https://github.com/nhrap-hazus/hazus.git"
+  home: "https://github.com/nhrap-hazus/hazpy.git"
   license: "GNU General Public v3 or later (GPLv3+)"
   license_family: GPL3
   license_file: 
-  summary: "FEMA - Hazus Open-Source Library"
+  summary: "FEMA - HazPy Open-Source Library"
   doc_url: 
   dev_url: 
 
